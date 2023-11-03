@@ -1,7 +1,7 @@
 var express = require('express');
-const toDoController = require("../controllers/todo_controller")
-const {markItemAsComplete} = require("../controllers/todo_controller");
 var router = express.Router();
+const toDoController = require("../controllers/todo_controller")
+
 
 /* GET home page. */
 router.get('/', toDoController.homeRoute);
@@ -10,7 +10,7 @@ router.get('/add', toDoController.renderAddForm);
 
 router.post('/add', toDoController.addNewItem);
 
-router.get('/complete/:id', markItemAsComplete)
+router.get('/complete/:id', toDoController.markItemAsComplete)
 
 router.get('/incomplete/:id', toDoController.markItemAsIncomplete);
 
